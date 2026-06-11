@@ -86,8 +86,8 @@ figbits init
 
 ## Project files
 
-- `~/.config/figbits/config.json` — Figma PAT, team ID, watched files, webhook URL, schedule (chmod 600)
-- `~/.config/figbits/state.json` — `lastRun` timestamps and `surfacedThreads` per file
+- `~/.figbits/config.json` — Figma PAT, team ID, watched files, webhook URL, schedule (chmod 600)
+- `~/.figbits/state.json` — `lastRun` timestamps and `surfacedThreads` per file
 - `~/Library/LaunchAgents/com.figbits.digest.plist` — macOS scheduler entry
 
 ---

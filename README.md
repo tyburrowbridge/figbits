@@ -35,13 +35,26 @@
 
 ## Install
 
-```bash
-npm install -g figbits
+In Claude Code, run these **one at a time**:
+
+```
+/plugin marketplace add tyburrowbridge/figbits
 ```
 
-Then run setup:
+```
+/plugin install figbits@figbits
+```
+
+```
+/reload-plugins
+```
+
+To pin to a specific release: `tyburrowbridge/figbits@v0.1.0`.
+
+**npm alternative** (for use outside Claude Code):
 
 ```bash
+npm install -g figbits
 figbits init
 ```
 
@@ -51,9 +64,9 @@ figbits init
 
 | Step | Command | What it does |
 |---|---|---|
-| 1 | `figbits init` | One-time setup — validates credentials, picks files, installs scheduler. |
+| 1 | `/figbits:init` | One-time setup — validates credentials, picks files, installs scheduler. |
 | 2 | *(wait for schedule)* | launchd fires automatically on your chosen preset. |
-| 3 | `figbits run` | Send a digest right now without waiting for the schedule. |
+| 3 | `/figbits:run` | Send a digest right now without waiting for the schedule. |
 
 ---
 
@@ -61,12 +74,13 @@ figbits init
 
 | Command | What it does |
 |---|---|
-| `figbits init` | One-time setup wizard — PAT, team, files, webhook, schedule. |
-| `figbits run` | Fetch new comments and post a digest to Slack immediately. |
-| `figbits files` | Re-open the file picker to add or remove watched files. |
-| `figbits schedule` | Change the digest schedule and reinstall the launchd job. |
-| `figbits status` | Show current config, last-run timestamps, and scheduler state. |
-| `figbits uninstall` | Remove the launchd job (prompts whether to also delete config). |
+| `/figbits:init` | One-time setup wizard — PAT, team, files, webhook, schedule. |
+| `/figbits:run` | Fetch new comments and post a digest to Slack immediately. |
+| `/figbits:files` | Re-open the file picker to add or remove watched files. |
+| `/figbits:schedule` | Change the digest schedule and reinstall the launchd job. |
+| `/figbits:status` | Show current config, last-run timestamps, and scheduler state. |
+| `/figbits:uninstall` | Remove the launchd job (prompts whether to also delete config). |
+| `/figbits:whatsnew` | Release notes + check if a newer version is available. |
 
 ---
 
@@ -93,9 +107,14 @@ Change at any time with `figbits schedule`.
 
 ## Upgrading
 
-```bash
-npm update -g figbits
+Upgrades go through Claude Code's plugin manager:
+
 ```
+/plugin update figbits
+/reload-plugins
+```
+
+After upgrading, run `/figbits:whatsnew` to see what changed.
 
 ---
 
@@ -103,14 +122,15 @@ npm update -g figbits
 
 Remove the scheduler and optionally wipe config:
 
-```bash
-figbits uninstall
+```
+/figbits:uninstall
 ```
 
-Then remove the package:
+Then remove the plugin from Claude Code:
 
-```bash
-npm uninstall -g figbits
+```
+/plugin uninstall figbits@figbits
+/plugin marketplace remove figbits
 ```
 
 **Manual fallback:**
@@ -118,7 +138,7 @@ npm uninstall -g figbits
 ```bash
 launchctl unload ~/Library/LaunchAgents/com.figbits.digest.plist
 rm ~/Library/LaunchAgents/com.figbits.digest.plist
-rm -rf ~/.config/figbits
+rm -rf ~/.figbits
 ```
 
 ---

@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "A marketplace of bite sized utilities for designers",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {
@@ -14,7 +14,13 @@
       "source": "./",
       "description": "Scheduled Figma comment digest to Slack",
       "category": "design",
-      "tags": ["figma", "slack", "comments", "digest", "notifications"]
+      "tags": [
+        "figma",
+        "slack",
+        "comments",
+        "digest",
+        "notifications"
+      ]
     }
   ]
 }

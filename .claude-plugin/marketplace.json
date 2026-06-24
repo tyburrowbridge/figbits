@@ -1,0 +1,20 @@
+{
+  "name": "figbits",
+  "owner": {
+    "name": "Ty Burrowbridge",
+    "email": "tyburrowbridge@gmail.com"
+  },
+  "metadata": {
+    "description": "A marketplace of bite sized utilities for designers",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "figbits",
+      "source": "./",
+      "description": "Scheduled Figma comment digest to Slack",
+      "category": "design",
+      "tags": ["figma", "slack", "comments", "digest", "notifications"]
+    }
+  ]
+}
